@@ -1,5 +1,8 @@
+$SearchBase = "OU=abc,DC=domain,DC=local"
+$PathReport = "C:\_home\github-temp\BitlockerRecoveryPassword-Report.txt"
+
 Import-Module ActiveDirectory
-Get-ADComputer -Filter 'ObjectClass -eq "computer"' -SearchBase "OU=abc,DC=domain,DC=local" | foreach-object {
+Get-ADComputer -Filter 'ObjectClass -eq "computer"' -SearchBase $SearchBase | foreach-object {
     $Computer = $_.name
     #Check if the Computer Object exists
     $Computer_Object = Get-ADComputer -Filter { cn -eq $Computer } -Property msTPM-OwnerInformation, msTPM-TpmInformationForComputer
@@ -20,5 +23,5 @@ Get-ADComputer -Filter 'ObjectClass -eq "computer"' -SearchBase "OU=abc,DC=domai
     Write-Host $strToReport
     #Save to Report
   
-    $strToReport | Out-File C:\myfolder\Report.txt -append
+    $strToReport | Out-File $PathReport -append
 }
