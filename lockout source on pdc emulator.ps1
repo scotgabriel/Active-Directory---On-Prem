@@ -1,0 +1,1 @@
+Get-WinEvent -FilterHashtable @{logname=’security’; id=4740} | fl
