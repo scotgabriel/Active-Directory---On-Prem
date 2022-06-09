@@ -1,0 +1,1 @@
+`get-aduser -filter * -properties ProfilePath | ? {$_.ProfilePath -and $_.enabled -eq $true} | Select Name`

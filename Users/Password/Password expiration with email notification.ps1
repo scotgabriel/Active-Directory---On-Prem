@@ -18,7 +18,7 @@ param (
 
 # taken from here: https://github.com/KGHague/PowerShell (2021-10-19)
 
-function PreparePasswordPolicyMail ($ComplexityEnabled,$MaxPasswordAge,$MinPasswordAge,$MinPasswordLength,$PasswordHistoryCount)            
+function PreparePasswordPolicyMail ($ComplexityEnabled,[SecureString] $MaxPasswordAge,[SecureString] $MinPasswordAge,[SecureString] $MinPasswordLength,[SecureString] $PasswordHistoryCount)            
 {            
     $verbosemailBody = "<p class=MsoNormal>&nbsp;</p><p class=MsoNormal>Below is a summary of the requirements for your new password:</p>`r`n<ul>`r`n"            
     $verbosemailBody += "<li class=MsoNormal>Your password must be changed every <b>" + $MaxPasswordAge + "</b> days.</li>`r`n"            
