@@ -1,1 +1,1 @@
-Get-WinEvent -FilterHashtable @{logname=’security’; id=4740} | fl
+Get-WinEvent -FilterHashtable @{logname=’security’; id=4740} | Format-List
